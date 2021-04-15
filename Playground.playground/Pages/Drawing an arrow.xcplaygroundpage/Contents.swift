@@ -64,9 +64,9 @@ func drawArrow(unitLengthOf squareSize: Int, drawingSelf: Bool) {
     turtle.right(by: 90)
     turtle.forward(steps: 1 * squareSize)
     turtle.left(by: 135)
-    turtle.forward(steps: Int(2.0 * Double(2).squareRoot() * Double(squareSize)))
+    turtle.forward(steps: Int(round(2.0 * Double(2).squareRoot() * Double(squareSize))))
     turtle.left(by: 90)
-    turtle.forward(steps: Int(2.0 * Double(2).squareRoot() * Double(squareSize)))
+    turtle.forward(steps: Int(round(2.0 * Double(2).squareRoot() * Double(squareSize))))
     turtle.left(by: 135)
     turtle.forward(steps: 1 * squareSize)
     turtle.right(by: 90)
@@ -94,40 +94,46 @@ func drawRowOfArrows(count: Int) {
 
 }
 
-// Draw two small arrows next to one another
-let size = 4
+// Set constants to control how the drawing looks
+let size = 6
 let debugEnabled = false
+let arrowsPerRow = 12
 
 turtle.penUp()
-turtle.setX(to: 25)
-turtle.setY(to: 25)
 
-for _ in 1...2 {
+// Position turtle to help see where row is drawing
+turtle.setX(to: 0)
+turtle.setY(to: 0)
+
+// Draw rows of arrows going up the screen
+for _ in 1...13 {
     
     // Draw a row
     turtle.setPenColor(to: .black)
-    drawRowOfArrows(count: 8)
+    drawRowOfArrows(count: arrowsPerRow)
 
     // Get turned around and in position to draw a new row
-    turtle.drawSelf()
+//    turtle.drawSelf()
     turtle.left(by: 90)
     turtle.penUp()
-    turtle.forward(steps: 5 * size)
+    turtle.forward(steps: 4 * size)
     turtle.left(by: 90)
     turtle.forward(steps: 2 * size)
-    turtle.drawSelf()
+//    turtle.drawSelf()
     turtle.penUp()
 
-    // Draw a new row
+    // Move forward the equivalent length of a row of arrows
     turtle.setPenColor(to: .red)
+//    drawRowOfArrows(count: arrowsPerRow)
     turtle.penUp()
-    turtle.forward(steps: 8 * 7 * size)
+    turtle.forward(steps: arrowsPerRow * 7 * size)
 
     // Get turned around and in position to draw a new row
-    turtle.drawSelf()
+//    turtle.drawSelf()
     turtle.right(by: 180)
+    turtle.penUp()
     turtle.forward(steps: 2 * size)
-    turtle.drawSelf()
+//    turtle.drawSelf()
     turtle.penUp()
 
 }
