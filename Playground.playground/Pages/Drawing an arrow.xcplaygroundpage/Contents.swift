@@ -80,24 +80,19 @@ func drawArrow(unitLengthOf squareSize: Int, drawingSelf: Bool) {
 
 }
 
-// Actually get the turtle to move to the centre of the canvas
-turtleToMiddleOfCanvas()
-
 // Draw two small arrows next to one another
 let size = 5
 let debugEnabled = false
-// Arrow 1
-drawArrow(unitLengthOf: size, drawingSelf: debugEnabled)
-turtle.penUp()
-turtle.forward(steps: 8 * size)
-// Arrow 2
-drawArrow(unitLengthOf: size, drawingSelf: debugEnabled)
-turtle.penUp()
-turtle.forward(steps: 8 * size)
-// Arrow 3
-drawArrow(unitLengthOf: size, drawingSelf: debugEnabled)
-turtle.penUp()
-turtle.forward(steps: 8 * size)
+
+// Use a loop to draw many arrows in a row
+for _ in 1...8 {
+    
+    drawArrow(unitLengthOf: size, drawingSelf: debugEnabled)
+    turtle.penUp()
+    turtle.forward(steps: 8 * size)
+
+}
+
 
 
 
