@@ -98,6 +98,7 @@ func drawRowOfArrows(count: Int) {
 let size = 4
 let debugEnabled = false
 
+turtle.penUp()
 turtle.setX(to: 25)
 turtle.setY(to: 25)
 
@@ -111,7 +112,7 @@ for _ in 1...2 {
     turtle.drawSelf()
     turtle.left(by: 90)
     turtle.penUp()
-    turtle.forward(steps: 4 * size)
+    turtle.forward(steps: 5 * size)
     turtle.left(by: 90)
     turtle.forward(steps: 2 * size)
     turtle.drawSelf()
@@ -119,7 +120,8 @@ for _ in 1...2 {
 
     // Draw a new row
     turtle.setPenColor(to: .red)
-    drawRowOfArrows(count: 8)
+    turtle.penUp()
+    turtle.forward(steps: 8 * 7 * size)
 
     // Get turned around and in position to draw a new row
     turtle.drawSelf()
