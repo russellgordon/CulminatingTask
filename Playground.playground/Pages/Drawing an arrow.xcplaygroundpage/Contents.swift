@@ -98,32 +98,38 @@ func drawRowOfArrows(count: Int) {
 let size = 4
 let debugEnabled = false
 
-// Draw a row
-drawRowOfArrows(count: 12)
+turtle.setX(to: 25)
+turtle.setY(to: 25)
 
-// Get turned around and in position to draw a new row
-turtle.drawSelf()
-turtle.left(by: 90)
-turtle.penUp()
-turtle.forward(steps: 4 * size)
-turtle.left(by: 90)
-turtle.forward(steps: 2 * size)
-turtle.drawSelf()
-turtle.penUp()
+for _ in 1...2 {
+    
+    // Draw a row
+    turtle.setPenColor(to: .black)
+    drawRowOfArrows(count: 8)
 
-// Draw a new row
-turtle.setPenColor(to: .red)
-drawRowOfArrows(count: 12)
+    // Get turned around and in position to draw a new row
+    turtle.drawSelf()
+    turtle.left(by: 90)
+    turtle.penUp()
+    turtle.forward(steps: 4 * size)
+    turtle.left(by: 90)
+    turtle.forward(steps: 2 * size)
+    turtle.drawSelf()
+    turtle.penUp()
 
-// Get turned around and in position to draw a new row
-turtle.drawSelf()
-turtle.left(by: 90)
-turtle.penUp()
-turtle.forward(steps: 4 * size)
-turtle.left(by: 90)
-turtle.forward(steps: 2 * size)
-turtle.drawSelf()
-turtle.penUp()
+    // Draw a new row
+    turtle.setPenColor(to: .red)
+    drawRowOfArrows(count: 8)
+
+    // Get turned around and in position to draw a new row
+    turtle.drawSelf()
+    turtle.right(by: 180)
+    turtle.forward(steps: 2 * size)
+    turtle.drawSelf()
+    turtle.penUp()
+
+}
+
 
 
 /*:
