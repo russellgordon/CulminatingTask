@@ -4,8 +4,8 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 19 and 20.
  */
-let preferredWidth = 600
-let preferredHeight = 600
+let preferredWidth = 300
+let preferredHeight = 300
 /*:
  ## Required code
  
@@ -35,9 +35,30 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+// Teach the turtle how to move from the origin (bottom-left corner) to the centre of the canvas
+func turtleToMiddleOfCanvas() {
+    
+    // Move turtle to middle of bottom edge of canvas
+    turtle.penUp()
+    turtle.forward(steps: canvas.width / 2)
 
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+    // Move turtle to dead centre of canvas
+    turtle.left(by: 90)
+    turtle.penUp()
+    turtle.forward(steps: canvas.height / 2)
+
+    // Turn the turtle to the right
+    turtle.right(by: 90)
+}
+
+
+// Actually get the turtle to move to the centre of the canvas
+turtleToMiddleOfCanvas()
+
+// Draw to see where we are
+turtle.drawSelf()
+
+
 
 /*:
  ## Show the Live View
