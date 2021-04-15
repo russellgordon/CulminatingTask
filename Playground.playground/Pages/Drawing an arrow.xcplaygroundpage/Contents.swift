@@ -52,29 +52,42 @@ func turtleToMiddleOfCanvas() {
     turtle.right(by: 90)
 }
 
+// Draw an arrow of variable size
+func drawArrow(unitLengthOf squareSize: Int, drawingSelf: Bool) {
+    
+    // Begin drawing an arrow
+    if drawingSelf {
+        turtle.drawSelf()   // Start
+    }
+    turtle.penDown()
+    turtle.forward(steps: 5 * squareSize)
+    turtle.right(by: 90)
+    turtle.forward(steps: 2 * squareSize)
+    turtle.left(by: 135)
+    turtle.forward(steps: Int(3.0 * Double(2).squareRoot() * Double(squareSize)))
+    turtle.left(by: 90)
+    turtle.forward(steps: Int(3.0 * Double(2).squareRoot() * Double(squareSize)))
+    turtle.left(by: 135)
+    turtle.forward(steps: 2 * squareSize)
+    turtle.right(by: 90)
+    turtle.forward(steps: 5 * squareSize)
+    turtle.left(by: 90)
+    turtle.forward(steps: 2 * squareSize)
+    turtle.left(by: 90)
+    if drawingSelf {
+        turtle.drawSelf()   // End
+    }
+
+}
 
 // Actually get the turtle to move to the centre of the canvas
 turtleToMiddleOfCanvas()
 
-// Begin drawing an arrow
-let squareSize = 10
-turtle.drawSelf()   // Start
-turtle.penDown()
-turtle.forward(steps: 5 * squareSize)
-turtle.right(by: 90)
-turtle.forward(steps: 2 * squareSize)
-turtle.left(by: 135)
-turtle.forward(steps: Int(3.0 * Double(2).squareRoot() * Double(squareSize)))
-turtle.left(by: 90)
-turtle.forward(steps: Int(3.0 * Double(2).squareRoot() * Double(squareSize)))
-turtle.left(by: 135)
-turtle.forward(steps: 2 * squareSize)
-turtle.right(by: 90)
-turtle.forward(steps: 5 * squareSize)
-turtle.left(by: 90)
-turtle.forward(steps: 2 * squareSize)
-turtle.left(by: 90)
-turtle.drawSelf()   // End
+// Draw a small arrow
+drawArrow(unitLengthOf: 5, drawingSelf: false)
+drawArrow(unitLengthOf: 10, drawingSelf: false)
+
+
 
 
 
